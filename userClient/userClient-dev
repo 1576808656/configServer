@@ -2,7 +2,7 @@ server:
   port: 8120
 spring:
   application:
-    name: userClient-service
+    name: userClient
   lifecycle:
     timeout-per-shutdown-phase: 30s
   datasource:
