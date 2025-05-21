@@ -2,7 +2,7 @@ server:
   port: 8110
 spring:
   application:
-    name: gateway-service
+    name: gateway
   lifecycle:
     timeout-per-shutdown-phase: 30s
   devtools:
@@ -64,7 +64,7 @@ eureka:
     serviceUrl:
       defaultZone: http://192.168.8.10:8761/eureka
   instance:
-    instance-id: gateway-service
+    instance-id: gateway
     prefer-ip-address: true
     
 logging:
