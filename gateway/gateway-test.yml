@@ -16,33 +16,25 @@ spring:
     gateway:
       routes:
       - id: workTime-signIn-route
-        uri: lb://workTime-service
+        uri: lb://workTime
         predicates:
         - Path=/insertSignInInfo/**
-        filters:
-        - StripPrefix=2
       - id: workTime-getLocation-route
-        uri: lb://workTime-service
+        uri: lb://workTime
         predicates:
         - Path=/getLocation/**
       - id: workTime-setLocation-route
-        uri: lb://workTime-service
+        uri: lb://workTime
         predicates:
         - Path=/setLocation/**
-        filters:
-        - StripPrefix=2
       - id: worker-manage-route
-        uri: lb://login-service
+        uri: lb://login
         predicates:
         - Path=/api/login/**
-#        filters:
-#        - StripPrefix=1
       - id: user-login-token
         uri: lb://userClient
         predicates:
         - Path=/api/validateToken/**
-#        filters:
-#        - StripPrefix=1
       discovery:
         locator:
           enabled: true
@@ -50,7 +42,7 @@ spring:
           cors-configurations:
            '[/**]':
             allowed-origins:
-            - "http://192.168.8.10:8120"
+            - "http://192.168.8.20:8120"
             allowed-methods:
              - GET
              - POST
@@ -62,7 +54,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://192.168.8.10:8761/eureka
+      defaultZone: http://localhost:8761/eureka
   instance:
     instance-id: gateway
     prefer-ip-address: true
